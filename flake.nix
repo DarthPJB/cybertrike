@@ -17,6 +17,7 @@
         modules = [
           agenix.nixosModules.default
           ./openstack.nix
+          ./darthpjb.nix
           {
             imports = [
               "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix"
@@ -26,7 +27,7 @@
               sshUser = "John88";
               substituteOnTarget = true;
               hermetic = true;
-              buildOn = "remote";
+              buildOn = "local";
             };
           }
         ];

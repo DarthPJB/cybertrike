@@ -19,8 +19,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.ports = [ 1108 22 ];
-  services.openssh.permitRootLogin = lib.mkForce "no";
-  services.openssh.passwordAuthentication = false;
+  services.openssh.settings.PermitRootLogin = lib.mkForce "no";
+  services.openssh.settings.PasswordAuthentication = false;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 1108 22 ];
   networking.firewall.allowedUDPPorts = [ ];
@@ -28,5 +28,4 @@
   # Configure keymap in X11
   services.xserver.layout = "gb";
   system.stateVersion = "22.11";
-  services.openssh.ports = [ 22 ];
 }
