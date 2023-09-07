@@ -26,7 +26,7 @@
               # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
               loginAccounts = {
                 "John88@mail.cybertrike.org" = {
-                  hashedPasswordFile = ./password.file;
+                  hashedPasswordFile = "${self}/password.file";
                   aliases = [ "postmaster@mail.cybertrike.org" ];
                 };
               };
