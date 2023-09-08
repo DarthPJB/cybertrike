@@ -65,7 +65,7 @@
                 # A list of all login accounts. To create the password hashes, use
                 # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
                 loginAccounts = {
-                  "John88@mail.cybertrike.org" = {
+                  "john.bargman@mail.cybertrike.org" = {
                     hashedPasswordFile = "${self}/password.file";
                     aliases = [ "postmaster@mail.cybertrike.org" ];
                   };
