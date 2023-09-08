@@ -12,6 +12,7 @@
   outputs = inputs@{ self, nixpkgs, agenix, nixinate, nixpkgs_unstable, simple-nixos-mailserver }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      webroot = "${self}/webroot";
     in
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
@@ -60,28 +61,28 @@
             {
               mailserver = {
                 fqdn = "mail.cybertrike.org";
-                domains = [ "mail.cybertrike.org" ];
+                domains = [ "mail.cybertrike.org" "cybertrike.org" ];
                 enable = true;
                 # A list of all login accounts. To create the password hashes, use
                 # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
                 loginAccounts = {
-                  "john.bargman@mail.cybertrike.org" = {
+                  "john.bargman@cybertrike.org" = {
                     hashedPasswordFile = "${self}/password.file";
-                    aliases = [ "postmaster@mail.cybertrike.org" ];
+                    aliases = [ "postmaster@mail.cybertrike.org" "postmaster@cybertrike.org"];
                   };
                 };
-
-                # Use Let's Encrypt certificates. Note that this needs to set up a stripped
-                # down nginx and opens port 80.
                 certificateScheme = "acme-nginx";
               };
             }
             agenix.nixosModules.default
             ./openstack.nix
+            (import ./website.nix { inherit webroot; })
             ./commander.nix
             {
-              security.acme.acceptTerms = true;
-              security.acme.defaults.email = "security@mail.cybertrike.org";
+                security.acme = {
+                    acceptTerms = true;
+                    defaults.email = "security@mail.cybertrike.org";
+                };
               environment.systemPackages = [
                 pkgs.btop
                 pkgs.tmux
