@@ -1,4 +1,3 @@
-@import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900");
 
 /*
@@ -108,7 +107,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 400;
-		color: #919499;
+		color: #ffffff;
 		font-size: 14pt;
 		line-height: 1.75em;
 		letter-spacing: 0.025em;
@@ -116,7 +115,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 700;
-		color: #484d55;
+		color: #dd00ff;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1472,7 +1471,7 @@ input, select, textarea {
 		}
 
 		header.style1 p {
-			color: #b1b4b9;
+			color: #ffffff;
 			display: block;
 			margin: 1.15em 0 0 0;
 			font-size: 1.3em;
@@ -2025,11 +2024,10 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background: #fff;
+			/*background: #fff;*/
 		}
 
 			.wrapper.style2 .title {
-				background: #fff;
 				color: #484d55;
 			}
 
@@ -2280,14 +2278,14 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #282b34 url("images/overlay.png");
+		/*background: #282b34 url("images/overlay.png");*/
 		color: #eee;
 		color: rgba(255, 255, 255, 0.5);
 		padding-bottom: 6em;
 	}
 
 		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b, #footer a {
-			color: #fff;
+			color: rgb(255, 0, 238);
 		}
 
 		#footer hr {
@@ -2358,7 +2356,7 @@ input, select, textarea {
 		}
 
 			#footer header.style1 h2 {
-				color: #fff;
+                color: rgb(255, 0, 238);
 			}
 
 			#footer header.style1 .p {
@@ -2384,6 +2382,7 @@ input, select, textarea {
 		padding-top: 6em;
 		margin-top: 6em;
 		border-top: solid 1px rgba(255, 255, 255, 0.05);
+        background: #3d4249 url("images/overlay.png");
 	}
 
 		#copyright ul {

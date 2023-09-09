@@ -8,8 +8,33 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            html:before {
+                content: " ";
+                display: block; position: fixed;
+                top: 0; left: 0; bottom: 0; right: 0;
+                background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.16) 50%);
+                z-index: 2;
+                background-size: 100% 2px, 3px 100%;
+                pointer-events: none;
+            }
+            .parallax {
+                /* The image used */
+                background-image: url("images/background.jpg");
+
+                /* Set a specific height */
+                min-height: 500px;
+
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
 	</head>
-	<body class="no-sidebar is-preload">
+	<body class="no-sidebar is-preload ">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -22,7 +47,7 @@
 						</div>
 				</section>
 			<!-- Main -->
-				<div id="main" class="wrapper style2">
+				<div id="main" class="wrapper style2 parallax">
 					<div class="title">An Epic Mission</div>
 					<div class="container">
 						<!-- Content -->
@@ -36,9 +61,13 @@
                                                 <!-- Contact -->
                                                 <div class="row">
                                                     <div class="col-12 col-12-small">
-                                                        <div class="icon solid fa-comment">Social</h3>
-                                                            <a href="https://www.youtube.com/@cybertrike">Youtube  </a> <a href="https://www.facebook.com/cybertrike">Facebook</a> <a href="https://discord.com/invite/sbPcgVzc">Discord</a> <a href="https://instagram.com/cybertriker">Instagram</a> <a href="https://www.twitch.tv/cybertriker">Twitch</a> <a href="mailto:postmaster@cybertrike.org">Email</a>
-                                                        </div>
+                                                        <br />
+                                                            <a href="https://www.youtube.com/@cybertrike" class="fa-brands fa-youtube fa-5x">  </a> 
+                                                            <a href="https://www.facebook.com/cybertrike" class="fa-brands fa-facebook fa-5x"></a> 
+                                                            <a href="https://discord.com/invite/sbPcgVzc" class="fa-brands fa-discord fa-5x"></a> 
+                                                            <a href="https://instagram.com/cybertriker"   class="fa-brands fa-instagram fa-5x"></a> 
+                                                            <a href="https://www.twitch.tv/cybertriker"   class="fa-brands fa-twitch fa-5x"></a> 
+                                                            <a href="mailto:postmaster@cybertrike.org"    class="fa fa-envelope fa-5x"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,11 +132,11 @@
 				</section>
 
 			<!-- Footer -->
-				<section id="footer" class="wrapper">
+				<section id="footer" class="wrapper parallax">
 					<div class="title">The journey</div>
 					<div class="container">
 						<header class="style1">
-							<h2>The journey cybertrike will be at least a year and your all coming with me by the power of live steaming.</h2>
+							<h2>The journey cybertrike will be at least a year and you're all coming with me by the power of live streaming.</h2>
 							<p>Join me on an epic journey with Cybertrike, a year-long ride that will take you on an unforgettable adventure - all from the comfort of your own home! Through the power of live streaming, you'll be able to experience every moment of this incredible journey as we raise awareness for obstructive sleep apnea and provide life-changing equipment to those in need. Whether you're a sleep apnea sufferer, a supporter of the cause, or just someone looking for an adventure, Cybertrike has something for everyone. So buckle up and join us on this incredible journey - together, we can make a difference!</p>
 						</header>
 						<div id="copyright">
