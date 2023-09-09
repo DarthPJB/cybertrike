@@ -1662,7 +1662,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #f98780;
+			background-color: #a600ff;
 		}
 
 		input[type="button"].large,
@@ -1688,7 +1688,7 @@ input, select, textarea {
 			input[type="reset"].style1:hover,
 			button.style1:hover,
 			.button.style1:hover {
-				background-color: #f98780;
+				background-color: #a600ff;
 			}
 
 			input[type="button"].style1:active,
