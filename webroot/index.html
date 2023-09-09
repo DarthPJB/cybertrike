@@ -9,32 +9,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <style>
-            html:before {
-                content: " ";
-                display: block; position: fixed;
-                top: 0; left: 0; bottom: 0; right: 0;
-                background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.16) 50%);
-                z-index: 2;
-                background-size: 100% 2px, 3px 100%;
-                pointer-events: none;
-            }
-            .parallax {
-                /* The image used */
-                background-image: url("images/background.jpg");
-
-                /* Set a specific height */
-                min-height: 500px;
-
-                /* Create the parallax scrolling effect */
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        </style>
+        <link rel="stylesheet" href="assets/css/custom.css" />
 	</head>
-	<body class="no-sidebar is-preload ">
+	<body class="no-sidebar is-preload parallax">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -47,7 +24,7 @@
 						</div>
 				</section>
 			<!-- Main -->
-				<div id="main" class="wrapper style2 parallax">
+				<div id="main" class="wrapper style2">
 					<div class="title">An Epic Mission</div>
 					<div class="container">
 						<!-- Content -->
@@ -62,18 +39,18 @@
                                                 <div class="row">
                                                     <div class="col-12 col-12-small">
                                                         <br />
-                                                            <a href="https://www.youtube.com/@cybertrike" class="fa-brands fa-youtube fa-5x">  </a> 
-                                                            <a href="https://www.facebook.com/cybertrike" class="fa-brands fa-facebook fa-5x"></a> 
-                                                            <a href="https://discord.com/invite/sbPcgVzc" class="fa-brands fa-discord fa-5x"></a> 
-                                                            <a href="https://instagram.com/cybertriker"   class="fa-brands fa-instagram fa-5x"></a> 
-                                                            <a href="https://www.twitch.tv/cybertriker"   class="fa-brands fa-twitch fa-5x"></a> 
-                                                            <a href="mailto:postmaster@cybertrike.org"    class="fa fa-envelope fa-5x"></a>
+                                                            <a href="https://www.youtube.com/@cybertrike" class="fa-brands fa-youtube fa-colored fa-4x">  </a>
+                                                            <a href="https://www.facebook.com/cybertrike" class="fa-brands fa-facebook fa-colored fa-4x"></a>
+                                                            <a href="https://discord.com/invite/sbPcgVzc" class="fa-brands fa-discord fa-colored fa-4x"></a>
+                                                            <a href="https://instagram.com/cybertriker"   class="fa-brands fa-instagram fa-colored fa-4x"></a>
+                                                            <a href="https://www.twitch.tv/cybertriker"   class="fa-brands fa-twitch fa-colored fa-4x"></a>
+                                                            <a href="mailto:postmaster@cybertrike.org"    class="fa fa-envelope fa-colored fa-4x"></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 									</header>
-                                    <a href="#" class="image featured" style="height:320px;overflow:hidden;">
+                                    <a href="#" class="image featured" style="width:100%;height:320px;overflow:hidden;background-color: #000;">
                                         <video no-controls loop muted autoplay style="width:600px;top:-10px;position:relative;display: block;margin-left: auto;margin-right: auto;">
                                             <source src="images/banner.mp4" type="video/mp4">
                                             <source src="images/banner.webm" type="video/webm">
@@ -81,11 +58,13 @@
                                         </video>
                                     </a>
 									<p>The Cybertrike is equipped with several pieces of technology to help it achieve its mission of raising awareness of sleep apnea and providing CPAP machines to those in need. Here are some examples:</p>
-                                    <p>Live streaming technology: The Cybertrike uses live streaming technology to allow viewers to follow the journey in real-time and interact with the rider. This technology allows the Cybertrike mission to reach a wider audience and engage with supporters from all over the world.</p>
-                                    <p>Solar panels: The Cybertrike is equipped with solar panels to provide power to the electric motor and other onboard technology when camping off-grid. This sustainable technology helps to reduce the reliance on traditional sources of power and promote environmentally friendly travel.</p>
-                                    <p>CPAP machines: The Cybertrike mission focuses on providing CPAP machines to those who cannot afford them. These machines use advanced technology to deliver continuous positive airway pressure and help those with sleep apnea to breathe more easily during sleep.</p>
-                                    <p>Navigation technology: The Cybertrike uses navigation technology to plan and execute the route for the journey. This technology includes GPS navigation, maps, and other tools to help the rider stay on track and reach their destination safely.</p>
-                                    <p>Overall, the Cybertrike uses a combination of advanced technology and sustainable practices to achieve its mission of raising awareness of sleep apnea and providing CPAP machines to those in need.</p>
+                                    <ul>
+                                        <li>Live streaming technology: The Cybertrike uses live streaming technology to allow viewers to follow the journey in real-time and interact with the rider. This technology allows the Cybertrike mission to reach a wider audience and engage with supporters from all over the world.</li>
+                                        <li>Solar panels: The Cybertrike is equipped with solar panels to provide power to the electric motor and other onboard technology when camping off-grid. This sustainable technology helps to reduce the reliance on traditional sources of power and promote environmentally friendly travel.</li>
+                                        <li>CPAP machines: The Cybertrike mission focuses on providing CPAP machines to those who cannot afford them. These machines use advanced technology to deliver continuous positive airway pressure and help those with sleep apnea to breathe more easily during sleep.</li>
+                                        <li>Navigation technology: The Cybertrike uses navigation technology to plan and execute the route for the journey. This technology includes GPS navigation, maps, and other tools to help the rider stay on track and reach their destination safely.</li>
+                                        <p>Overall, the Cybertrike uses a combination of advanced technology and sustainable practices to achieve its mission of raising awareness of sleep apnea and providing CPAP machines to those in need.</p>
+                                    </ul>
 								</article>
 							</div>
 
@@ -93,7 +72,7 @@
 				</div>
 
 			<!-- Highlights -->
-				<section id="highlights" class="wrapper style3">
+				<section id="highlights" class="wrapper style3 padding:0 0 0 0;">
 					<div class="title">People First</div>
 					<div class="container">
 						<div class="row aln-center">
@@ -103,7 +82,7 @@
 									<h3><a href="#">Putting Wellness First</a></h3>
 									<p>The Cybertrike journey is designed to raise awareness of sleep apnea and support those who are living with the condition, whether they are in the process of recovering or simply managing their symptoms.</p>
 									<ul class="actions">
-										<li><a href="#" class="button style1">Learn More</a></li>
+										<li><a href="https://www.facebook.com/cybertrike" class="button style1">Learn More</a></li>
 									</ul>
 								</section>
 							</div>
@@ -111,9 +90,9 @@
 								<section class="highlight">
 									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
 									<h3><a href="#">The guy next door</a></h3>
-									<p>Lee Hughes is a fun guy that loves playing the drums and raising awareness about his condition.</p>
+									<p>Lee Hughes is a fun guy that loves playing the drums and raising awareness about his condition. After many years undiagnosed with sleep apnea Lee was unable to even care for himself - with with treatment he's now able to ride!</p>
 									<ul class="actions">
-										<li><a href="https://www.youtube.com/@cybertrike" class="button style1">Join him on youtube</a></li>
+										<li><a href="https://www.youtube.com/@cybertrike" class="button style1">Join him</a></li>
 									</ul>
 								</section>
 							</div>
@@ -123,7 +102,7 @@
 									<h3><a href="#">steaming platforms</a></h3>
 									<p>The Cybertrike journey will be streamed on multiple platforms to reach as many people as possible. We will be streaming on popular platforms such as YouTube, Twitch, and Facebook Live, among others.</p>
 									<ul class="actions">
-										<li><a href="#" class="button style1">Learn More</a></li>
+										<li><a href="https://discord.com/invite/sbPcgVzc" class="button style1">Meet Community</a></li>
 									</ul>
 								</section>
 							</div>
@@ -132,14 +111,14 @@
 				</section>
 
 			<!-- Footer -->
-				<section id="footer" class="wrapper parallax">
+				<section id="footer" class="wrapper">
 					<div class="title">The journey</div>
 					<div class="container">
 						<header class="style1">
 							<h2>The journey cybertrike will be at least a year and you're all coming with me by the power of live streaming.</h2>
 							<p>Join me on an epic journey with Cybertrike, a year-long ride that will take you on an unforgettable adventure - all from the comfort of your own home! Through the power of live streaming, you'll be able to experience every moment of this incredible journey as we raise awareness for obstructive sleep apnea and provide life-changing equipment to those in need. Whether you're a sleep apnea sufferer, a supporter of the cause, or just someone looking for an adventure, Cybertrike has something for everyone. So buckle up and join us on this incredible journey - together, we can make a difference!</p>
 						</header>
-						<div id="copyright">
+						<div id="copyright" style="padding-top:0;">
 							<ul>
 								<li>&copy; Lee Hughes.</li><li>Design: <a href="mailto:darthpjb@gmail.com">John Bargman</a></li>
 							</ul>

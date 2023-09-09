@@ -1,0 +1,29 @@
+html:before {
+    content: " ";
+    display: block; position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.16) 50%);
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+.parallax {
+    /* The image used */
+    background-image: url("../../images/background.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fa-facebook.fa-colored, .fa-facebook-f.fa-colored, .fa-facebook-official.fa-colored, .fa-facebook-square.fa-colored { color: #3b5998; }
+.fa-instagram.fa-colored { color: #3f729b; }
+.fa-twitter.fa-colored, .fa-twitter-square.fa-colored { color: #55acee; }
+.fa-youtube.fa-colored, .fa-youtube-play.fa-colored, .fa-youtube-square.fa-colored { color: #cc181e; }
+.fa-envelope.fa-colored { color: #fff; }
+.fa-discord.fa-colored { color: #5865f2; }
+.fa-twitch.fa-colored { color: #9146ff; }
