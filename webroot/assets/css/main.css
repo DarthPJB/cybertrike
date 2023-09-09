@@ -1468,6 +1468,7 @@ input, select, textarea {
 			font-size: 2em;
 			letter-spacing: 0.075em;
 			line-height: 1.5em;
+            text-shadow: 0px 0px 5px #00fbff;
 		}
 
 		header.style1 p {
@@ -2101,7 +2102,8 @@ input, select, textarea {
 			font-weight: 900;
 			text-transform: uppercase;
             color: #00fbff;
-			font-size: 2em;
+            text-shadow: 0px 0px 5px  rgba(255, 0, 255, 0.7);
+			font-size: 4em;
 			letter-spacing: 0.25em;
 		}
 
@@ -2355,6 +2357,7 @@ input, select, textarea {
 
 			#footer header.style1 h2 {
                 color:#dd00ff;
+                text-shadow: 0px 0px 5px #00fbff;
 			}
 
 			#footer header.style1 .p {
