@@ -55,28 +55,28 @@
         };
       nixosConfigurations = {
         obs-box = nixpkgs.lib.nixosSystem
-        {
-        system = "x86_64-linux";
-        modules = [
-            ./config/users/commander.nix
-            ./config/configuration.nix
-            ./obs-box.nix
-            ./config/environments/i3wm_darthpjb.nix
-            ./config/environments/video_call_streaming.nix
-            ./config/modifier_imports/zfs.nix
-            {
+          {
+            system = "x86_64-linux";
+            modules = [
+              ./config/users/commander.nix
+              ./config/configuration.nix
+              ./obs-box.nix
+              ./config/environments/i3wm_darthpjb.nix
+              ./config/environments/video_call_streaming.nix
+              ./config/modifier_imports/zfs.nix
+              {
                 networking.firewall.allowedTCPPorts = [ 6666 8080 6669 ];
                 networking.firewall.allowedUDPPorts = [ 6666 ];
                 _module.args.nixinate = {
-                    host = "192.168.0.186";
-                    sshUser = "commander";
-                    substituteOnTarget = true;
-                    hermetic = true;
-                    buildOn = "remote";
+                  host = "192.168.0.186";
+                  sshUser = "commander";
+                  substituteOnTarget = true;
+                  hermetic = true;
+                  buildOn = "remote";
                 };
-            }
+              }
             ];
-        };
+          };
         cybertrike-1 = nixpkgs.lib.nixosSystem
           {
             system = "x86_64-linux";

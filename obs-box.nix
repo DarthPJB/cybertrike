@@ -32,7 +32,7 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./obs-box/hardware-configuration.nix
+      ./config/machines/obs-box/hardware-configuration.nix
     ];
   security = {
     sudo = {
@@ -109,7 +109,12 @@
   nixpkgs.config.nvidia.acceptLicense = true;
   environment.systemPackages =
     [
-      pkgs.love
+        (pkgs.wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-multi-rtmp
+          obs-move-transition
+        ];
+      })
     ];
   services =
     {

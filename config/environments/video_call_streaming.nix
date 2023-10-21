@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    obs-studio
+    #obs-studio
     #	obs-v4l2sink
   ];
   # Modules and kernel conf for obs
