@@ -55,74 +55,76 @@
         };
       nixosConfigurations = {
         obs-box = nixpkgs.lib.nixosSystem
-          {
-            system = "x86_64-linux";
-            modules = [
-              ./config/configuration.nix
-              ./config/machines/obs-box.nix
-              ./config/environments/i3wm_darthpjb.nix
-              ./config/environments/video_call_streaming.nix
-              ./config/modifier_imports/zfs.nix
-              {
+        {
+        system = "x86_64-linux";
+        modules = [
+            ./config/users/commander.nix
+            ./config/configuration.nix
+            ./obs-box.nix
+            ./config/environments/i3wm_darthpjb.nix
+            ./config/environments/video_call_streaming.nix
+            ./config/modifier_imports/zfs.nix
+            {
                 networking.firewall.allowedTCPPorts = [ 6666 8080 6669 ];
                 networking.firewall.allowedUDPPorts = [ 6666 ];
                 _module.args.nixinate = {
-                  host = "192.168.0.186";
-                  sshUser = "John88";
+                    host = "192.168.0.186";
+                    sshUser = "commander";
+                    substituteOnTarget = true;
+                    hermetic = true;
+                    buildOn = "remote";
+                };
+            }
+            ];
+        };
+        cybertrike-1 = nixpkgs.lib.nixosSystem
+          {
+            system = "x86_64-linux";
+            modules = [
+              simple-nixos-mailserver.nixosModule
+              {
+                mailserver = {
+                  fqdn = "mail.cybertrike.org";
+                  domains = [ "mail.cybertrike.org" "cybertrike.org" ];
+                  enable = true;
+                  # A list of all login accounts. To create the password hashes, use
+                  # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
+                  loginAccounts = {
+                    "john.bargman@cybertrike.org" = {
+                      hashedPasswordFile = "${self}/password.file";
+                      aliases = [ "postmaster@mail.cybertrike.org" "postmaster@cybertrike.org" ];
+                    };
+                  };
+                  certificateScheme = "acme-nginx";
+                };
+              }
+              agenix.nixosModules.default
+              ./config/machines/openstack/openstack.nix
+              (import ./website.nix { inherit webroot; })
+              ./config/users/commander.nix
+              {
+                security.acme = {
+                  acceptTerms = true;
+                  defaults.email = "security@mail.cybertrike.org";
+                };
+                environment.systemPackages = [
+                  pkgs.btop
+                  pkgs.tmux
+                  pkgs.neovim
+                ];
+                imports = [
+                  "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix"
+                ];
+                _module.args.nixinate = {
+                  host = "193.16.42.125";
+                  sshUser = "commander";
                   substituteOnTarget = true;
                   hermetic = true;
-                  buildOn = "remote";
+                  buildOn = "local";
                 };
               }
             ];
           };
-        cybertrike-1 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            simple-nixos-mailserver.nixosModule
-            {
-              mailserver = {
-                fqdn = "mail.cybertrike.org";
-                domains = [ "mail.cybertrike.org" "cybertrike.org" ];
-                enable = true;
-                # A list of all login accounts. To create the password hashes, use
-                # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
-                loginAccounts = {
-                  "john.bargman@cybertrike.org" = {
-                    hashedPasswordFile = "${self}/password.file";
-                    aliases = [ "postmaster@mail.cybertrike.org" "postmaster@cybertrike.org"];
-                  };
-                };
-                certificateScheme = "acme-nginx";
-              };
-            }
-            agenix.nixosModules.default
-            ./openstack.nix
-            (import ./website.nix { inherit webroot; })
-            ./commander.nix
-            {
-                security.acme = {
-                    acceptTerms = true;
-                    defaults.email = "security@mail.cybertrike.org";
-                };
-              environment.systemPackages = [
-                pkgs.btop
-                pkgs.tmux
-                pkgs.neovim
-              ];
-              imports = [
-                "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix"
-              ];
-              _module.args.nixinate = {
-                host = "193.16.42.125";
-                sshUser = "commander";
-                substituteOnTarget = true;
-                hermetic = true;
-                buildOn = "local";
-              };
-            }
-          ];
-        };
       };
     };
 }

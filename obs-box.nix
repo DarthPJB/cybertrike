@@ -50,7 +50,7 @@
   boot.zfs.extraPools = [ "storage" ];
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.syncthing= {
+  services.syncthing = {
     enable = true;
     openDefaultPorts = true;
     guiAddress = "0.0.0.0:8080";
