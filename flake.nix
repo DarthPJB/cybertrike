@@ -4,12 +4,11 @@
   inputs = {
     nixinate.url = "github:matthewcroughan/nixinate";
     agenix.url = "github:ryantm/agenix";
-    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, nixinate, nixpkgs_unstable, simple-nixos-mailserver }:
+  outputs = inputs@{ self, nixpkgs, agenix, nixinate, simple-nixos-mailserver }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       webroot = "${self}/webroot";
