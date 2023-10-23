@@ -10,6 +10,7 @@
       wantedBy = [ "graphical-session.target" ];
       serviceConfig =
         {
+          Restart="always";
           ExecStart = ''
             ${pkgs.obs-studio}/bin/obs
           '';
@@ -22,6 +23,7 @@
       wantedBy = [ "graphical-session.target" ];
       serviceConfig =
         {
+          Restart="always";
           ExecStart = ''
             ${pkgs.x11vnc}/bin/x11vnc -display $DISPLAY 
           '';
@@ -60,7 +62,7 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
-  users.users.John88 = {
+  users.users.commander = {
     openssh.authorizedKeys.keys =
       [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcZrafX+y1V7Q1lSZUSSR6R0ouIPuYL1KCAZw6kOsqe l33@nixos"
@@ -127,7 +129,7 @@
             defaultSession = "none+i3";
             autoLogin = {
               enable = true;
-              user = "John88";
+              user = "commander";
             };
           };
           windowManager.i3.enable = true;

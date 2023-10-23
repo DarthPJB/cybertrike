@@ -7,12 +7,12 @@
     [
       # Include the results of the hardware scan.
       ./modifier_imports/flakes.nix
-      ./users/darthpjb.nix
+      ./users/commander.nix
       ./locale/en_gb.nix
       ./environments/sshd.nix
       ./environments/tools.nix
     ];
-  nix.settings.trusted-users = [ "root" "John88" "commander" ];
+  nix.settings.trusted-users = [ "root" "commander" ];
   nixpkgs.config =
     {
       allowUnfree = true;

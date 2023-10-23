@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   nix = {
-    settings.trusted-users = [ "root" "John88" ];
+    settings.trusted-users = [ "root" "commander" ];
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
