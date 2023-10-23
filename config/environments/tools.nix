@@ -14,5 +14,6 @@
     pkgs.freemind
     pkgs.dnsutils
     pkgs.pciutils
+    pkgs.cmatrix
   ];
 }

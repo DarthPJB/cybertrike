@@ -1,6 +1,6 @@
 { webroot }: { config, lib, pkgs, ... }:
 {
-    imports = [ ./openstack.nix ];
+  imports = [ ./openstack.nix ];
   services.nginx.enable = true;
   services.nginx.virtualHosts."cybertrike.org" = {
     addSSL = true;

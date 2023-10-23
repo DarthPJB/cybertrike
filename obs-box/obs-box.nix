@@ -109,7 +109,7 @@
   nixpkgs.config.nvidia.acceptLicense = true;
   environment.systemPackages =
     [
-        (pkgs.wrapOBS {
+      (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           obs-multi-rtmp
           obs-move-transition
