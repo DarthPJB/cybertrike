@@ -3,6 +3,7 @@
 {
   environment.systemPackages = [
     pkgs.btop
+    pkgs.tmux
     pkgs.nano
     pkgs.wget
     pkgs.git
