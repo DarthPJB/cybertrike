@@ -76,6 +76,25 @@
               }
             ];
           };
+        cybertrike-2 = nixpkgs.lib.nixosSystem
+          {
+            system = "x86_64-linux";
+            modules = [
+              ./config/users/commander.nix
+              ./ethannet/configuration.nix
+              {
+                networking.firewall.allowedTCPPorts = [ 6666 8080 6669 ];
+                networking.firewall.allowedUDPPorts = [ 6666 ];
+                _module.args.nixinate = {
+                  host = "149.5.115.135";
+                  sshUser = "commander";
+                  substituteOnTarget = true;
+                  hermetic = true;
+                  buildOn = "remote";
+                };
+              }
+            ];
+          };
         cybertrike-1 = nixpkgs.lib.nixosSystem
           {
             system = "x86_64-linux";
