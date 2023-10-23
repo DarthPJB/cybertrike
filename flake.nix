@@ -59,7 +59,7 @@
             modules = [
               ./config/users/commander.nix
               ./config/configuration.nix
-              ./obs-box.nix
+              ./obs-box/obs-box.nix
               ./config/environments/i3wm_darthpjb.nix
               ./config/environments/video_call_streaming.nix
               ./config/modifier_imports/zfs.nix
@@ -118,8 +118,7 @@
                 };
               }
               agenix.nixosModules.default
-              ./config/machines/openstack/openstack.nix
-              (import ./website.nix { inherit webroot; })
+              (import ./website/website.nix { inherit webroot; })
               ./config/users/commander.nix
               {
                 security.acme = {

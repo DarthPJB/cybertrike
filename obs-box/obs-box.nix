@@ -32,7 +32,7 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./config/machines/obs-box/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
   security = {
     sudo = {
