@@ -82,6 +82,7 @@
             modules = [
               ./config/users/commander.nix
               ./ethannet/configuration.nix
+              ./ethannet/mediamtx.nix
               ./config/configuration.nix
               {
                 networking.firewall.allowedTCPPorts = [ 6666 8080 6669 ];
