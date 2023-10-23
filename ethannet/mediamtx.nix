@@ -21,10 +21,9 @@
           logLevel = "debug";
           paths = {
             restream = {
-              runOnInit = "${pkgs.coreutils}/bin/echo MTX SERVER LOADING:";
               runOnInitRestart = true;
-              runOnReady = "${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost:1935/restream -c copy -f flv rtmp://lhr03.contribute.live-video.net/app/live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
-              #''                ffmpeg -i rtmp://localhost/restream -c copy -f flv rtmp://''${stream_server}/app/''${stream_key}            '';
+              runOnReady = ''
+                    ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream -c copy -f flv rtmp://''${stream_server}/app/''${stream_key}'';
               runOnReadyRestart = true;
             };
           };
