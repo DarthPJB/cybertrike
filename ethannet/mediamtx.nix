@@ -15,6 +15,9 @@
       ki_stream_server = "fa723fc1b171.global-contribute.live-video.net/app";
       ki_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
 
+      tr_stream_server = "rtmp://livepush.trovo.live/live/";
+      tr_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
+
       fb_stream_server = "live-api-s.facebook.com:443/rtmp";
       fb_stream_key = "FB-114005818335608-0-Abw335iVypxJ4xCA";
       restream_script = pkgs.writeShellScriptBin "restream.sh"
@@ -23,7 +26,8 @@
             -tune zerolatency -map v:0 -map a:0 -c copy -f tee \
             "[f=flv:onfail=ignore]rtmp://${tw_stream_server}/${tw_stream_key}|\
             [f=flv:onfail=ignore]rtmp://${yt_stream_server}/${yt_stream_key}|\
-            [f=flv:onfail=ignore]rtmps://${ki_stream_server}/${ki_stream_key}" &
+            [f=flv:onfail=ignore]rtmps://${ki_stream_server}/${ki_stream_key}|\
+            [f=flv:onfail=ignore]rtmps://${tr_stream_server}/${tr_stream_key}" &
 
             ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
             -tune zerolatency -f flv -maxrate 4500k -preset ultrafast -g 48 -keyint_min 48 -sc_threshold 0 \
