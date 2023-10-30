@@ -15,19 +15,19 @@
       ki_stream_server = "fa723fc1b171.global-contribute.live-video.net/app";
       ki_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
 
-      tr_stream_server = "rtmp://livepush.trovo.live/live/";
-      tr_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
+      tr_stream_server = "livepush.trovo.live/live";
+      tr_stream_key = "73846_114751389_114751389?bizid=73846&txSecret=19f021f422f6cd41d578f258fab0cc07&txTime=77948015&cert=ea69c6d5ff2c08bbd9429820becb9fe4&certTime=64c87d15&flag=txcloud_114751389_114751389&timeshift_bps=0%7C2500%7C1500&timeshift_dur=43200&txAddTimestamp=4&tp_code=1690860821&tp_sign=1871107617&dm_sign=564503301&pq_sn=667866453&txHost=livepush.trovo.live";
 
       fb_stream_server = "live-api-s.facebook.com:443/rtmp";
       fb_stream_key = "FB-114005818335608-0-Abw335iVypxJ4xCA";
       restream_script = pkgs.writeShellScriptBin "restream.sh"
         ''              
             ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
-            -tune zerolatency -map v:0 -map a:0 -c copy -f tee \
+            -tune zerolatency -map v:0 -map a:0 -c copy -f tee -use_fifo 1 \
             "[f=flv:onfail=ignore]rtmp://${tw_stream_server}/${tw_stream_key}|\
             [f=flv:onfail=ignore]rtmp://${yt_stream_server}/${yt_stream_key}|\
             [f=flv:onfail=ignore]rtmps://${ki_stream_server}/${ki_stream_key}|\
-            [f=flv:onfail=ignore]rtmps://${tr_stream_server}/${tr_stream_key}" &
+            [f=flv:onfail=ignore]rtmp://${tr_stream_server}/${tr_stream_key}" &
 
             ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
             -tune zerolatency -f flv -maxrate 4500k -preset ultrafast -g 48 -keyint_min 48 -sc_threshold 0 \
@@ -48,6 +48,10 @@
           ];
           logFile = "/var/log/mediamtx/mediamtx.log";
           logLevel = "debug";
+          pathDefaults = {
+            publishUser = "cybertrike";
+            publishPass = "cybercybercybertrike";
+          };
           paths = {
             restream = {
               runOnInitRestart = true;
