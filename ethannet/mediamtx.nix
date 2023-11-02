@@ -27,13 +27,13 @@
             "[f=flv:onfail=ignore]rtmp://${tw_stream_server}/${tw_stream_key}|\
             [f=flv:onfail=ignore]rtmp://${yt_stream_server}/${yt_stream_key}|\
             [f=flv:onfail=ignore]rtmps://${ki_stream_server}/${ki_stream_key}|\
-            [f=flv:onfail=ignore]rtmp://${tr_stream_server}/${tr_stream_key}" &
+            [f=flv:onfail=ignore]rtmp://${tr_stream_server}/${tr_stream_key}" 
 
-            ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
-            -tune zerolatency -f flv -maxrate 4500k -preset ultrafast -g 48 -keyint_min 48 -sc_threshold 0 \
-            -vf "crop=9/16*ih:ih" -strict -2 -ac 1 -ar 44100 -b:a 96k -pix_fmt yuv420p \
-            -map v:0 -map 0:a -c:a copy -c:v libx264 -f tee \
-            "[f=flv:onfail=ignore]rtmps://${fb_stream_server}/${fb_stream_key}" &
+            #${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
+            #-tune zerolatency -f flv -maxrate 4500k -preset ultrafast -g 48 -keyint_min 48 -sc_threshold 0 \
+            #-vf "crop=9/16*ih:ih" -strict -2 -ac 1 -ar 44100 -b:a 96k -pix_fmt yuv420p \
+            #-map v:0 -map 0:a -c:a copy -c:v libx264 -f tee \
+            #"[f=flv:onfail=ignore]rtmps://${fb_stream_server}/${fb_stream_key}" &
 
             wait
 
