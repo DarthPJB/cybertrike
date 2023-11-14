@@ -6,7 +6,8 @@
 
   services.mediamtx =
     let
-      tw_stream_server = "lhr03.contribute.live-video.net/app";
+      #tw_stream_server = "lhr03.contribute.live-video.net/app";
+      tw_stream_server = "live-lhr.twitch.tv/app";
       tw_stream_key = "live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
 
       yt_stream_server = "a.rtmp.youtube.com/live2";
@@ -35,7 +36,20 @@
             #-map v:0 -map 0:a -c:a copy -c:v libx264 -f tee \
             #"[f=flv:onfail=ignore]rtmps://${fb_stream_server}/${fb_stream_key}" &
 
-            wait
+            #wait
+
+        '';
+
+      restreamsrt_script = pkgs.writeShellScriptBin "restreamsrt.sh"
+        ''              
+            ${pkgs.ffmpeg}/bin/ffmpeg -i srt://localhost/restreamsrt \
+            -f fifo -fifo-format flv -map v:0 -map a:0 -c copy -vtag 7 -atag 7 -drop_pkts_on_overflow 1 -attempt_recovery 1 --recovery_wait_time 4 -f tee -use_fifo 1 \
+            "[f=flv:onfail=ignore]rtmp://${tw_stream_server}/${tw_stream_key}|\
+            [f=flv:onfail=ignore]rtmp://${yt_stream_server}/${yt_stream_key}|\
+            [f=flv:onfail=ignore]rtmps://${ki_stream_server}/${ki_stream_key}|\
+            [f=flv:onfail=ignore]rtmp://${tr_stream_server}/${tr_stream_key}" 
+
+            #wait
 
         '';
     in
@@ -57,6 +71,13 @@
               runOnInitRestart = true;
               runOnReady = "${restream_script}/bin/restream.sh";
               runOnReadyRestart = true;
+            };
+            restreamtest = {
+            #publishUser = "cybertrike";
+            #publishPass = "cybercybercybertrike";
+              #runOnInitRestart = true;
+              #runOnReady = "${restreamsrt_script}/bin/restreamsrt.sh";
+              #runOnReadyRestart = true;
             };
 
           };
