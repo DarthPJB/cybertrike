@@ -11,7 +11,7 @@
   outputs = inputs@{ self, nixpkgs, agenix, nixinate, simple-nixos-mailserver }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      webroot = "${self}/webroot";
+      webroot = "${self}/website/webroot";
     in
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
