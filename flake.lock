@@ -193,6 +193,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1694959747,
+        "narHash": "sha256-CXQ2MuledDVlVM5dLC4pB41cFlBWxRw4tCBsFrq3cRk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "970a59bd19eff3752ce552935687100c46e820a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1670751203,
         "narHash": "sha256-XdoH1v3shKDGlrwjgrNX/EN8s3c+kQV7xY6cLCE8vcI=",
         "owner": "NixOS",
@@ -211,14 +227,33 @@
         "agenix": "agenix",
         "nixinate": "nixinate",
         "nixpkgs": "nixpkgs_3",
+        "secrix": "secrix",
         "simple-nixos-mailserver": "simple-nixos-mailserver"
+      }
+    },
+    "secrix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1700131917,
+        "narHash": "sha256-Zv6eoElHGGD4tqckvCl2z4Yxc5SdaRZaz1dE81dtY3c=",
+        "owner": "Platonic-Systems",
+        "repo": "secrix",
+        "rev": "cd2ca60df5b4a5a3251d038ff170281db7d5b996",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Platonic-Systems",
+        "repo": "secrix",
+        "type": "github"
       }
     },
     "simple-nixos-mailserver": {
       "inputs": {
         "blobs": "blobs",
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "nixpkgs-22_11": "nixpkgs-22_11",
         "nixpkgs-23_05": "nixpkgs-23_05",
         "utils": "utils"

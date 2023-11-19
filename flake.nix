@@ -6,9 +6,10 @@
     agenix.url = "github:ryantm/agenix";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    secrix.url = "github:Platonic-Systems/secrix";
   };
 
-  outputs = inputs@{ self, nixpkgs, agenix, nixinate, simple-nixos-mailserver }:
+  outputs = inputs@{ self, nixpkgs, agenix, nixinate, simple-nixos-mailserver, secrix }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       webroot = "${self}/webroot";
@@ -16,6 +17,9 @@
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
       apps.x86_64-linux = (inputs.nixinate.nixinate.x86_64-linux inputs.self).nixinate;
+
+      apps.x86_64-linux.secrix = inputs.secrix.secrix self;
+
       devShell.x86_64-linux =
         pkgs.mkShell {
           buildInputs = with pkgs; [ figlet tmux ];
