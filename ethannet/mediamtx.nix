@@ -6,6 +6,7 @@
 
   secrix.services.mediamtx.secrets = {
     tw_stream_key.encrypted.file = ../secrets/tw_stream_key;
+    yt_stream_key.encrypted.file = ../secrets/yt_stream_key;
   };
 
   services.mediamtx =
@@ -13,10 +14,11 @@
       #tw_stream_server = "lhr03.contribute.live-video.net/app";
       tw_stream_server = "live-lhr.twitch.tv/app";
       # tw_stream_key = "live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
-      tw_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.ts_stream_key.decrypted.path})";
+      tw_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.tw_stream_key.decrypted.path})";
 
       yt_stream_server = "a.rtmp.youtube.com/live2";
-      yt_stream_key = "xuta-15b1-m92p-u41z-fxc0";
+      # yt_stream_key = "xuta-15b1-m92p-u41z-fxc0";
+      yt_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.yt_stream_key.decrypted.path})";
 
       ki_stream_server = "fa723fc1b171.global-contribute.live-video.net/app";
       ki_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
@@ -90,4 +92,11 @@
     };
   networking.firewall.allowedUDPPorts = [ 6669 8000 8001 8890 ];
   networking.firewall.allowedTCPPorts = [ 6669 8888 8889 8554 1935 ];
+  users = {
+    users.mediamtx = {
+      isSystemUser = true;
+      group = "mediamtx";
+    };
+    groups.mediamtx = { };
+  };
 }
