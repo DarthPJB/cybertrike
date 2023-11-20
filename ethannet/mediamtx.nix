@@ -4,11 +4,16 @@
     pkgs.ffmpeg-full
   ];
 
+  secrix.services.mediamtx.secrets = {
+    tw_stream_key.encrypted.file = ../secrets/tw_stream_key;
+  };
+
   services.mediamtx =
     let
       #tw_stream_server = "lhr03.contribute.live-video.net/app";
       tw_stream_server = "live-lhr.twitch.tv/app";
-      tw_stream_key = "live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
+      # tw_stream_key = "live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
+      tw_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.ts_stream_key.decrypted.path})";
 
       yt_stream_server = "a.rtmp.youtube.com/live2";
       yt_stream_key = "xuta-15b1-m92p-u41z-fxc0";

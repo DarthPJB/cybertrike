@@ -32,6 +32,14 @@
   networking.defaultGateway = "149.5.115.129";
   networking.nameservers = [ "1.1.1.1" ];
 
+  secrix = {
+    hostPubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9NwWO2t+xJS+5siLIztFYzoH26Mu45lqpY84P2TCUA";
+    defaultEncryptKeys = {
+      john = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhzz/CAb74rLQkDF2weTCb0DICw1oyXNv6XmdLfEsT5" ];
+      lee = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcZrafX+y1V7Q1lSZUSSR6R0ouIPuYL1KCAZw6kOsqe" ];
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 

@@ -86,6 +86,7 @@
               ./ethannet/configuration.nix
               ./ethannet/mediamtx.nix
               ./config/configuration.nix
+	      inputs.secrix.nixosModules.default
               {
                 networking.firewall.allowedTCPPorts = [ 6666 8080 6669 ];
                 networking.firewall.allowedUDPPorts = [ 6666 ];
