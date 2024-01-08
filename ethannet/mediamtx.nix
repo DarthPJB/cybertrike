@@ -7,27 +7,29 @@
   secrix.services.mediamtx.secrets = {
     tw_stream_key.encrypted.file = ../secrets/tw_stream_key;
     yt_stream_key.encrypted.file = ../secrets/yt_stream_key;
+    ki_stream_key.encrypted.file = ../secrets/ki_stream_key;
+    tr_stream_key.encrypted.file = ../secrets/tr_stream_key;
+    fb_stream_key.encrypted.file = ../secrets/fb_stream_key;
   };
 
   services.mediamtx =
     let
       #tw_stream_server = "lhr03.contribute.live-video.net/app";
       tw_stream_server = "live-lhr.twitch.tv/app";
-      # tw_stream_key = "live_903856572_iUoDqW2G7htcCJCsjqeuNKKa5ccGRy";
       tw_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.tw_stream_key.decrypted.path})";
 
       yt_stream_server = "a.rtmp.youtube.com/live2";
-      # yt_stream_key = "xuta-15b1-m92p-u41z-fxc0";
+      
       yt_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.yt_stream_key.decrypted.path})";
 
       ki_stream_server = "fa723fc1b171.global-contribute.live-video.net/app";
-      ki_stream_key = "sk_us-west-2_FObEyLcKaSLi_RWZdhRhagoTPdjByAUWrY3L9MhOGUu";
+      ki_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.ki_stream_key.decrypted.path})";
 
       tr_stream_server = "livepush.trovo.live/live";
-      tr_stream_key = "73846_114751389_114751389?bizid=73846&txSecret=19f021f422f6cd41d578f258fab0cc07&txTime=77948015&cert=ea69c6d5ff2c08bbd9429820becb9fe4&certTime=64c87d15&flag=txcloud_114751389_114751389&timeshift_bps=0%7C2500%7C1500&timeshift_dur=43200&txAddTimestamp=4&tp_code=1690860821&tp_sign=1871107617&dm_sign=564503301&pq_sn=667866453&txHost=livepush.trovo.live";
+      tr_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.tr_stream_key.decrypted.path})";
 
       fb_stream_server = "live-api-s.facebook.com:443/rtmp";
-      fb_stream_key = "FB-114005818335608-0-Abw335iVypxJ4xCA";
+      fb_stream_key = "$(cat ${config.secrix.services.mediamtx.secrets.fb_stream_key.decrypted.path})";
       restream_script = pkgs.writeShellScriptBin "restream.sh"
         ''              
             ${pkgs.ffmpeg}/bin/ffmpeg -i rtmp://localhost/restream \
